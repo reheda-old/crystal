@@ -26,6 +26,7 @@ class CreatePostsTable extends Migration
             $table->string('slug')->unique();
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords');
+
             $table->integer('floor')->nullable(); //этаж
             $table->integer('max_floor')->nullable(); //этажность
             $table->integer('total_area')->nullable(); //общая площадь
@@ -39,13 +40,13 @@ class CreatePostsTable extends Migration
             $table->string('currency')->nullable(); //валюта
 
 
-
-
+            $table->integer('views')->unsigned()->default(0);
+            $table->boolean('exported')->default(false);
             $table->boolean('published')->default(false);
             $table->boolean('featured')->default(0);
             $table->timestamps();
 
-            //$table->foreign('author_id')->references('id')->on('users');
+            //$table->foreign('user_id')->references('id')->on('users');
         });
     }
 
