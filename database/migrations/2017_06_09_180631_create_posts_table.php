@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->text('excerpt');
             $table->text('body');
             $table->string('image')->nullable();
-            $table->string('image_slider')->nullable();
+            $table->text('image_slider')->nullable();
             $table->string('slug')->unique();
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords');
@@ -35,7 +35,7 @@ class CreatePostsTable extends Migration
             $table->integer('rooms')->nullable(); //комнаты
             $table->integer('bathrooms')->nullable(); //санузлы
             $table->integer('parking')->nullable(); //парковки
-            $table->string('wall_type')->nullable(); //тип стен
+            $table->integer('wall_type_id')->nullable(); //тип стен
             $table->integer('price')->nullable(); //цена
             $table->string('currency')->nullable(); //валюта
 
