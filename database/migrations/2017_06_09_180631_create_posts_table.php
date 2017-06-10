@@ -29,7 +29,7 @@ class CreatePostsTable extends Migration
             $table->text('meta_keywords');
 
             $table->string('address')->nullable(); //адрес
-            $table->string('district')->nullable(); //район
+            $table->integer('district_id')->nullable(); //район
             $table->integer('floor')->nullable(); //этаж
             $table->integer('max_floor')->nullable(); //этажность
             $table->integer('total_area')->nullable(); //общая площадь
