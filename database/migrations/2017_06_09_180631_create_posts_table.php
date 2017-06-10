@@ -39,11 +39,10 @@ class CreatePostsTable extends Migration
             $table->integer('bathrooms')->nullable(); //санузлы
             $table->integer('parking')->nullable(); //парковки
             $table->integer('balconies')->nullable(); //балконы
+            $table->integer('construction_year')->nullable(); //год постройки
             $table->integer('wall_type_id')->nullable(); //тип стен
-
             $table->integer('price')->nullable(); //цена
             $table->string('currency')->nullable(); //валюта
-
 
             $table->integer('views')->unsigned()->default(0);
             $table->boolean('exported')->default(false);
