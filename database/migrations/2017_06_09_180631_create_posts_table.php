@@ -43,6 +43,7 @@ class CreatePostsTable extends Migration
             $table->integer('views')->unsigned()->default(0);
             $table->boolean('exported')->default(false);
             $table->boolean('published')->default(false);
+            $table->timestamp('published_at')->nullable();
             $table->boolean('featured')->default(0);
             $table->timestamps();
 
