@@ -12,10 +12,11 @@ class SlugMaker
 {
     /**
      * Transliterate russian letters
+     *
      * @param $russian_text
-     * @return transliteration
+     * @return string
      */
-    static function rus2translit($russian_text)
+    static private function rus2translit($russian_text)
     {
         $converter = array(
             'а' => 'a', 'б' => 'b', 'в' => 'v',
@@ -51,7 +52,7 @@ class SlugMaker
      * Retrieve url friendly slug
      *
      * @param $text
-     * @return mixed|string
+     * @return string
      */
     static public function slugify($text)
     {
