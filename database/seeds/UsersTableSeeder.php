@@ -14,6 +14,7 @@ class UsersTableSeeder extends Seeder
     {
 
         User::create([
+           'role_id'=>'1',
            'surname'=>'Иванов',
            'name'=>'Иван',
            'middle_name'=>'Иванович',
@@ -23,6 +24,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::create([
+            'role_id'=>'2',
             'surname'=>'Петров',
             'name'=>'Петр',
             'middle_name'=>'Петрович',
@@ -32,6 +34,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::create([
+            'role_id'=>'3',
             'surname'=>'Николаев',
             'name'=>'Николай',
             'middle_name'=>'Николаевич',
