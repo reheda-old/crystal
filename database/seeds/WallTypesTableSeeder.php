@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\WallType;
+use App\Helpers\SlugMaker;
 
 class WallTypesTableSeeder extends Seeder
 {
@@ -32,7 +33,7 @@ class WallTypesTableSeeder extends Seeder
 
         foreach ($types as $type){
             WallType::create([
-                'name' => $type,
+                'name' => SlugMaker::slugify($type),
                 'display_name' => $type,
             ]);
         }
