@@ -15,7 +15,7 @@ class SlugMaker
      * @param $russian_text
      * @return transliteration
      */
-    function rus2translit($russian_text)
+    static function rus2translit($russian_text)
     {
         $converter = array(
             'а' => 'a', 'б' => 'b', 'в' => 'v',
@@ -53,13 +53,15 @@ class SlugMaker
      * @param $text
      * @return mixed|string
      */
-    public function slugify($text)
+    static public function slugify($text)
     {
+        //example https://stackoverflow.com/a/2955878/6346515
+
         // replace non letter or digits by -
         $text = preg_replace('~[^\pL\d]+~u', '-', $text);
 
         // transliterate
-        $text = $this->rus2translit($text);
+        $text = self::rus2translit($text);
 
         // remove unwanted characters
         $text = preg_replace('~[^-\w]+~', '', $text);
