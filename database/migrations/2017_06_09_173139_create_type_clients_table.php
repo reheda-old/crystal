@@ -15,8 +15,8 @@ class CreateTypeClientsTable extends Migration
     {
         Schema::create('type_clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type')->unique();
-            $table->string('display_type');
+            $table->string('name')->unique();
+            $table->string('display_name');
             $table->timestamps();
         });
     }
