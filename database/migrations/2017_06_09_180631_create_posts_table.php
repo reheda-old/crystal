@@ -42,7 +42,7 @@ class CreatePostsTable extends Migration
             $table->integer('construction_year')->nullable(); //год постройки
             $table->integer('wall_type_id')->nullable(); //тип стен
             $table->integer('price')->nullable(); //цена
-            $table->string('currency')->nullable(); //валюта
+            $table->integer('currency_id'); //валюта
 
             $table->integer('views')->unsigned()->default(0);
             $table->boolean('exported')->default(false);
