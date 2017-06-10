@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
          $this->call(WallTypesTableSeeder::class);
          $this->call(TypeClientsTableSeeder::class);
          $this->call(RolesTableSeeder::class);
+         $this->call(CategoriesTableSeeder::class);
     }
 }
