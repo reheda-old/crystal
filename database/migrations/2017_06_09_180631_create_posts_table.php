@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->integer('client_id');
             $table->integer('category_id')->nullable();
             $table->string('title');
             $table->string('seo_title')->nullable();
@@ -27,6 +28,8 @@ class CreatePostsTable extends Migration
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords');
 
+            $table->string('address')->nullable(); //адрес
+            $table->string('district')->nullable(); //район
             $table->integer('floor')->nullable(); //этаж
             $table->integer('max_floor')->nullable(); //этажность
             $table->integer('total_area')->nullable(); //общая площадь
@@ -45,6 +48,7 @@ class CreatePostsTable extends Migration
             $table->boolean('published')->default(false);
             $table->timestamp('published_at')->nullable();
             $table->boolean('featured')->default(0);
+            $table->boolean('delivered')->default(0);
             $table->timestamps();
 
             //$table->foreign('user_id')->references('id')->on('users');
