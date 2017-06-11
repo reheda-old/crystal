@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePost;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Helpers\SlugMaker;
@@ -17,7 +18,7 @@ class PostController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->only('create');
     }
 
     /**
@@ -45,25 +46,30 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  StorePost $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePost $request)
     {
         $post = new Post();
 
-//        dd($request->all());
+        $excerpt = substr($request->body, 0, 100) . '...';
+        $slug = SlugMaker::slugify($request->title);
+        //take only not empty values with array_filter func
+        $meta_keywords = implode(';', array_filter([
+            Category::find($request->category_id)->display_name,
+            District::find($request->district_id)->display_name . ' район',
+            $request->title,
+        ]));
+
         Post::create(
             array_merge(
                 $request->all(),
-                ['excerpt' => substr($request->body, 0, 100) . '...'],
-                ['slug' => SlugMaker::slugify($request->title)],
-                //array filter only for left not empty values
-                ['meta_keywords' => implode(';', array_filter([
-                    Category::find($request->category_id)->display_name,
-                    District::find($request->district_id)->display_name.' район',
-                    $request->title,
-                ]))]
+                [
+                    'excerpt' => $excerpt,
+                    'slug' => $slug,
+                    'meta_keywords' => $meta_keywords
+                ]
             )
 
         );

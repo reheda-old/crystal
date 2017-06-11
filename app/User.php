@@ -39,4 +39,26 @@ class User extends Authenticatable
     {
         return $this->id;
     }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role', 'role_id');
+    }
+
+    public function hasRole($role)
+    {
+        return $role === ($this->role->name);
+    }
+
+    public function fullName()
+    {
+        $values = [
+            $this->surname,
+            $this->name,
+            $this->middle_name,
+        ];
+        $fullName = implode(' ', $values);
+        return $fullName;
+    }
+
 }
