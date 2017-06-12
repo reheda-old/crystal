@@ -15,7 +15,7 @@ class CreateClientHistoriesTable extends Migration
     {
         Schema::create('client_histories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('client_id');
+            $table->integer('client_id')->unsigned();
             $table->text('action')->nullable();
             $table->timestamp('date');
             $table->timestamps();

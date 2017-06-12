@@ -15,7 +15,7 @@ class ClientsTableSeeder extends Seeder
         Client::create([
 
             'user_id' => '1',
-            'type_client_id' => '4',
+            'client_type_id' => '4',
             'surname' => 'Клиентская',
             'name' => 'Анна',
             'middle_name' => 'Сидоровна',
@@ -25,7 +25,7 @@ class ClientsTableSeeder extends Seeder
 
         Client::create([
             'user_id' => '2',
-            'type_client_id' => '4',
+            'client_type_id' => '4',
             'surname' => 'Малышева',
             'name' => 'Надежда',
             'middle_name' => 'Олеговна',
@@ -35,7 +35,7 @@ class ClientsTableSeeder extends Seeder
 
         Client::create([
             'user_id' => '2',
-            'type_client_id' => '2',
+            'client_type_id' => '2',
             'surname' => 'Полуторная',
             'name' => 'Ольга',
             'middle_name' => 'Александровна',

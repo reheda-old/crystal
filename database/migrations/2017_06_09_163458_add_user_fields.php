@@ -17,7 +17,7 @@ class AddUserFields extends Migration
             if (!Schema::hasColumn('users', 'avatar')) {
                 $table->string('avatar')->nullable()->after('email');
             }
-            $table->integer('role_id')->after('id');
+            $table->integer('role_id')->unsigned()->after('id');
             $table->string('surname')->nullable()->after('role_id');
             $table->string('middle_name')->nullable()->after('name');
             $table->string('phone')->nullable()->after('middle_name');

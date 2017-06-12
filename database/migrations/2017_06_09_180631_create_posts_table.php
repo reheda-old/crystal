@@ -15,9 +15,9 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('client_id');
-            $table->integer('category_id')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->integer('client_id')->unsigned();
+            $table->integer('category_id')->unsigned()->nullable();
             $table->string('title');
             $table->string('seo_title')->nullable();
             $table->text('excerpt');
@@ -29,7 +29,7 @@ class CreatePostsTable extends Migration
             $table->text('meta_keywords');
 
             $table->string('address')->nullable(); //адрес
-            $table->integer('district_id')->nullable(); //район
+            $table->integer('district_id')->unsigned()->nullable(); //район
             $table->integer('floor')->nullable(); //этаж
             $table->integer('max_floor')->nullable(); //этажность
             $table->integer('total_area')->nullable(); //общая площадь
@@ -40,9 +40,9 @@ class CreatePostsTable extends Migration
             $table->integer('parking')->nullable(); //парковки
             $table->integer('balconies')->nullable(); //балконы
             $table->integer('construction_year')->nullable(); //год постройки
-            $table->integer('wall_type_id')->nullable(); //тип стен
+            $table->integer('wall_type_id')->unsigned()->nullable(); //тип стен
             $table->integer('price')->nullable(); //цена
-            $table->integer('currency_id'); //валюта
+            $table->integer('currency_id')->unsigned(); //валюта
 
             $table->integer('views')->unsigned()->default(0);
             $table->boolean('exported')->default(false);

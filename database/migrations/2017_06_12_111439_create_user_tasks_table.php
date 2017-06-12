@@ -15,8 +15,8 @@ class CreateUserTasksTable extends Migration
     {
         Schema::create('user_tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('client_id')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->integer('client_id')->unsigned()->nullable();
             $table->text('task')->nullable();
             $table->timestamp('date');
             $table->enum('status', ['DONE', 'CANCELED', 'PENDING'])->default('PENDING');
