@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\TypeClient;
+use App\Models\ClientType;
 
-class TypeClientsTableSeeder extends Seeder
+class ClientTypesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,7 +20,7 @@ class TypeClientsTableSeeder extends Seeder
         ];
 
         foreach ($types as $name => $disp_name) {
-            TypeClient::create([
+            ClientType::create([
                 'name' => $name,
                 'display_name' => $disp_name,
             ]);
