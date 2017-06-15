@@ -110,6 +110,17 @@ class BuildTableRalationships extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('restrict');
         });
+
+        Schema::table('user_stats', function (Blueprint $table) {
+
+            $table
+                ->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+        });
+
     }
 
     /**
@@ -141,6 +152,9 @@ class BuildTableRalationships extends Migration
             $table->dropForeign(['district_id']);
             $table->dropForeign(['wall_type_id']);
             $table->dropForeign(['currency_id']);
+        });
+        Schema::table('user_stats', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
         });
     }
 }
