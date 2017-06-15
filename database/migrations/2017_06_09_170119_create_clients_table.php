@@ -23,6 +23,7 @@ class CreateClientsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->unique();
             $table->string('avatar')->nullable();
+            $table->integer('offered_properties')->default(0);
             $table->timestamps();
         });
     }
