@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->text('body');
             $table->string('image')->nullable();
             $table->text('image_slider')->nullable();
+            $table->text('video')->nullable();
             $table->string('slug')->unique();
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords');
